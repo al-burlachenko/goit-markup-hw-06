@@ -533,6 +533,7 @@ img {
   font-weight: 500;
   background-color: var(--opp-color);
 }
+
 .invisible {
   color: transparent;
   position: absolute;
@@ -623,6 +624,50 @@ img {
     0px 40px 40px rgba(0, 0, 0, 0.06), 10px 40px 60px rgba(0, 0, 0, 0.16);
 }
 
+
+/* Cards-portfolio-overlay  */
+.card-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-item-link:hover > .card-thumb::before {
+  transform: translateY(0);
+}
+
+.thumb-overlay {
+  display: block;
+  position: absolute;
+  background-color: var(--сurrent-color);
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.thumb-overlay > p {
+  box-sizing: border-box;
+
+  display: block;
+  position: absolute;
+
+  width: 100%;
+  color: var(--opp-color);
+  font-family: "Roboto", "Verdana", "Tahoma", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  padding: 63px 24px;
+}
+
+.card-item-link:hover .thumb-overlay {
+  transform: translateY(0);
+}
+
 /* modal  */
 
 .backdrop {
@@ -634,8 +679,9 @@ img {
 
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
+  visibility: visible;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
+  visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
 }
 
@@ -677,6 +723,8 @@ img {
   align-items: center;
 }
 
+/* .button  */
+
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
@@ -686,48 +734,7 @@ img {
   transform: translate(-50%, -50%) scale(0.9);
 }
 
-/* Cards-portfolio-overlay  */
-.card-thumb {
-  position: relative;
-  overflow: hidden;
-}
 
-.card-item-link:hover > .card-thumb::before {
-  transform: translateY(0);
-}
-
-.thumb-overlay {
-  display: block;
-  position: absolute;
-  background-color: var(--current-colour);
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.7;
-  transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.thumb-overlay > p {
-  box-sizing: border-box;
-
-  display: block;
-  position: absolute;
-
-  width: 100%;
-  color: var(--opp-color);
-  font-family: "Roboto", "Verdana", "Tahoma", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.56;
-  letter-spacing: 0.03em;
-  padding: 63px 24px;
-}
-
-.card-item-link:hover .thumb-overlay {
-  transform: translateY(0);
-}
 
 .footer-svg {
   width: 24px;
@@ -743,22 +750,32 @@ img {
   margin-left: auto;
   margin-right: auto;
   padding: 40px 42px;
-
-  outline: 1px solid red;
 }
 
 .modal-title {
+}
+
+.modal-form label {
+  color: var(--alt-color);
+  font-family: "Roboto", "Verdana", "Tahoma", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
 }
 
 .form-field {
   display: flex;
   position: relative;
   flex-direction: column;
-  /* align-items: baseline; */
-
-  outline: 1px solid orange;
 
   margin-top: 28px;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.form-field:focus-within {
+  fill: var(--сurrent-color);
 }
 
 .modal-form .form-field:first-of-type {
@@ -769,24 +786,31 @@ img {
   display: flex;
   margin-top: 30px;
   margin-bottom: 0;
-  outline: 1px solid palevioletred;
 
   align-items: center;
   justify-content: center;
+}
+
+.checkbox-submit {
+  color: var(--alt-color);
+  font-family: "Roboto", "Verdana", "Tahoma", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
 }
 
 .form-field > textarea {
   display: block;
   resize: none;
   padding: 12px 16px;
-  outline: 1px solid greenyellow;
+
 }
 
 .form-field > label {
   bottom: 100%;
   left: 0;
   position: absolute;
-  outline: 1px solid tomato;
   transform: translateY(-4px);
 }
 
@@ -806,32 +830,23 @@ img {
   fill:var(--сurrent-color);
 } */
 
-.form-field:focus-within {
-  fill: var(--сurrent-color);
-}
-
 .footer-form {
   display: flex;
   margin-top: auto;
   margin-left: 93px;
   /* padding: 40px 42px; */
-
-  outline: 1px solid forestgreen;
 }
 
 .footer-form input {
   padding-left: 16px;
   background: var(--footer-colour);
-  margin-top: 20px; 
-}
-
-.form-field {
-  outline: 1px solid purple;
+  margin-top: 20px;
 }
 
 .footer-input {
   width: 358px;
   height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .underline-link {
@@ -859,19 +874,34 @@ img {
   margin-left: 12px;
   margin-top: auto;
 
-  outline: 1px solid red;
 }
 
 .modal-link {
+  /* display: flex; */
   margin: 30px auto 0 auto;
+  justify-content: center;
+  align-items: center;
+
+
 }
 
 .checkbox {
-  -webkit-appearance: none;
+  /* -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 
+  position: absolute; */
+
   position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .checkbox-submit .icon {
