@@ -854,7 +854,8 @@ img {
 }
 
 .modal-form input {
-  padding-left: 42px;
+  height: 16px; 
+  padding: 12px 42px; 
 }
 
 .footer-link,
